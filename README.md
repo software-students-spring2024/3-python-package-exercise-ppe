@@ -4,7 +4,7 @@
 
 ## Badge
 
-[![Build Tests](https://github.com/software-students-spring2024/3-python-package-exercise-ppe/actions/workflows/build_tests.yml/badge.svg?branch=main)](https://github.com/software-students-spring2024/3-python-package-exercise-ppe/actions/workflows/build_tests.yml)
+[![Build Tests](https://github.com/software-students-spring2024/3-python-package-exercise-ppe/actions/workflows/build_tests.yml/badge.svg)](https://github.com/software-students-spring2024/3-python-package-exercise-ppe/actions/workflows/build_tests.yml)
 
 ## Team Members
 
