@@ -7,4 +7,5 @@ setup(
     author='Zhognqian Chen, Eric Emmendorfer, Hojong Shim, Ethan Kim',
     packages=find_packages(),
     install_requires=[],
+    python_requires='>=3.6',
 )
