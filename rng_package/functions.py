@@ -40,9 +40,3 @@ def generate_powerball():
     powerball_number = random.randint(1, 26)
     powerball_combination = main_numbers + [powerball_number]
     return powerball_combination
-
-if __name__ == "__main__":
-    print("Coin Flip:", coin_flip())
-    print("Dice Roll:", dice_roll())
-    print("Draw Cards:", draw_cards())
-    print("Powerball Combination:", generate_powerball())
