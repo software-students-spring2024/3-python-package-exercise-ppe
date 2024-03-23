@@ -27,16 +27,13 @@ jobs:
             python --version
             pip list
 
-      - name: List Conda environments
-        run: conda info --envs
-
-      - name: Initialize Conda
+      - name: Install dependencies
         run: |
-            eval "$(conda shell.bash hook)"
-            conda activate myenv
+            python -m pip install --upgrade pip
+            pip install -r requirements-dev.txt
 
       - name: Run tests
-        run: pytest  
+        run: pytest
 
       - name: Build package
         run: python setup.py sdist bdist_wheel
