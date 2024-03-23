@@ -27,8 +27,10 @@ jobs:
             python --version
             pip list
 
-      - name: Activate Anaconda environment
-        run: conda activate myenv
+      - name: Initialize Conda
+        run: |
+            eval "$(conda shell.bash hook)"
+            conda activate myenv
 
       - name: Run tests
         run: pytest  
