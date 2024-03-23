@@ -31,7 +31,7 @@ jobs:
         run: |
             python -m pip install --upgrade pip
             pip install -r requirements-dev.txt
-            py -3 -m pip install wheel
+            pip install wheel
 
       - name: Run tests
         run: pytest
