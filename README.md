@@ -165,7 +165,7 @@ Draws a random item from a bag of different numbers of different items.
 Example:
 
 ```py
-print(draw_from_bag) # Pulls one random item from the bag
+print(draw_from_bag(["red","green","blue"], [1,5,9])) # Pulls one random item from the bag
 
 ```
 <br>
