@@ -139,7 +139,7 @@ def test_prob_simulator_custom_outcomes():
     prob = 1/len(outcomes)
     for i in range(len(outcomes)):
         probabilities.append(prob)
-    result = prob_simulator(outcomes)
+    result = prob_simulator(outcomes, probabilities)
     assert len(result) == 1
     assert result[0] in outcomes
 
