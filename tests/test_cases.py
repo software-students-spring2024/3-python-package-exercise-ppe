@@ -95,3 +95,84 @@ def test_generate_powerball_unique_combinations():
     results = [generate_powerball() for _ in range(num_times)]
     unique_results = set(tuple(result) for result in results)
     assert len(results) == len(unique_results)
+
+def test_draw_from_bag_defaults():
+    # Test default behavior
+    result = draw_from_bag()
+    assert len(result) == 1
+    assert result[0] in ['red', 'blue', 'green']
+
+def test_draw_from_bag_custom_items():
+    # Test drawing from a bag with custom items
+    itemTypes = ['apple', 'banana', 'cherry']
+    result = draw_from_bag(itemTypes)
+    assert len(result) == 1
+    assert result[0] in itemTypes
+
+def test_draw_from_bag_custom_item_nums():
+    # Test drawing from a bag with custom item numbers
+    itemTypes = ['apple', 'banana', 'cherry']
+    itemNums = [3, 2, 1]
+    result = draw_from_bag(itemTypes, itemNums)
+    assert len(result) == 1
+    assert result[0] in itemTypes
+
+def test_draw_from_bag_multiple_draws():
+    # Test drawing multiple items from the bag
+    itemTypes = ['apple', 'banana', 'cherry']
+    itemNums = [3, 2, 1]
+    drawNum = 5
+    result = draw_from_bag(itemTypes, itemNums, drawNum)
+    assert len(result) == drawNum
+    assert all(item in itemTypes for item in result)
+
+def test_prob_simulator_defaults():
+    # Test default behavior
+    result = prob_simulator()
+    assert len(result) == 1
+    assert result[0] in ['yes', 'no']
+
+def test_prob_simulator_custom_outcomes():
+    # Test custom outcomes
+    outcomes = ['win', 'lose', 'draw']
+    result = prob_simulator(outcomes)
+    assert len(result) == 1
+    assert result[0] in outcomes
+
+def test_prob_simulator_custom_probabilities():
+    # Test custom probabilities
+    outcomes = ['win', 'lose', 'draw']
+    probabilities = [0.2, 0.5, 0.3]
+    result = prob_simulator(outcomes, probabilities)
+    assert len(result) == 1
+    assert result[0] in outcomes
+
+def test_prob_simulator_multiple_trials():
+    # Test multiple trials
+    num_trials = 10
+    result = prob_simulator(num_trials=num_trials)
+    assert len(result) == num_trials
+    assert all(outcome in ['yes', 'no'] for outcome in result)
+
+def test_prob_simulator_invalid_probabilities():
+    # Test with invalid probabilities (not summing to 1)
+    outcomes = ['win', 'lose', 'draw']
+    probabilities = [0.2, 0.5, 0.4]
+    result = prob_simulator(outcomes, probabilities)
+    assert len(result) == 0  # Expect an empty list for invalid probabilities
+
+def test_prob_simulator_invalid_input():
+    # Test with invalid input (negative number of trials)
+    num_trials = -1
+    result = prob_simulator(num_trials=num_trials)
+    assert len(result) == 0  # Expect an empty list for negative input
+
+def test_prob_simulator_custom_outcomes_probabilities():
+    # Test with custom outcomes and probabilities
+    outcomes = ['win', 'lose', 'draw']
+    probabilities = [0.3, 0.4, 0.3]
+    num_trials = 1000
+    result = prob_simulator(outcomes, probabilities, num_trials)
+    assert len(result) == num_trials
+    assert all(outcome in outcomes for outcome in result)
+
