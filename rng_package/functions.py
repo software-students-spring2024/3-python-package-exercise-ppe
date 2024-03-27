@@ -55,15 +55,16 @@ def draw_from_bag(itemTypes=["red","blue","green"], itemNums=[3,3,3], drawNum=1)
 
 
 def prob_simulator(outcomes=["yes", "no"], probabilities=[0.5, 0.5], num_trials=1):
-    #check that lengths are eqaul
+    # Check that lengths are equal
     try:
         if len(outcomes) != len(probabilities):
             raise ValueError("Lengths of outcomes and probabilities must match")
             
-    results = []
-    for i in range(num_trials):
-        result = random.choices(outcomes, probabilities)[0]
-        results.append(result)
+        results = []
+        for i in range(num_trials):
+            result = random.choices(outcomes, probabilities)[0]
+            results.append(result)
+        return results
     except ValueError as e:
         print("Error:", e)
-    return results
+        return []
