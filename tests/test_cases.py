@@ -135,6 +135,10 @@ def test_prob_simulator_defaults():
 def test_prob_simulator_custom_outcomes():
     # Test custom outcomes
     outcomes = ['win', 'lose', 'draw']
+    probabilities=[]
+    prob = 1/len(outcomes)
+    for i in range(len(outcomes)):
+        probabilities.append(prob)
     result = prob_simulator(outcomes)
     assert len(result) == 1
     assert result[0] in outcomes
