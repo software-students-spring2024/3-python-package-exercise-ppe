@@ -60,6 +60,10 @@ def prob_simulator(outcomes=["yes", "no"], probabilities=[0.5, 0.5], num_trials=
         if len(outcomes) != len(probabilities):
             raise ValueError("Lengths of outcomes and probabilities must match")
             
+         # Check if probabilities sum up to 1
+        if abs(sum(probabilities) - 1) > 1e-10:
+            raise ValueError("Probabilities must sum up to 1")
+            
         results = []
         for i in range(num_trials):
             result = random.choices(outcomes, probabilities)[0]
