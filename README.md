@@ -142,6 +142,57 @@ print(generate_powerball()) # Generates a Powerball combination
 ```
 <br>
 
+### Function 5: Draw from bag
+
+```py
+
+def draw_from_bag(itemTypes=["red","blue","green"], itemNums=[3,3,3], drawNum=1):
+    bag = []
+    drawn=[]
+    for i in range(len(itemTypes)):
+        for j in range(itemNums[i]):
+            bag.append(itemTypes[i])
+    for i in range(drawNum):
+        draw = random.choice(bag)
+        bag.remove(draw)
+        drawn.append(draw)
+    return drawn
+
+```
+
+Draws a random item from a bag of different numbers of different items. 
+
+Example:
+
+```py
+print(draw_from_bag) # Pulls one random item from the bag
+
+```
+<br>
+
+### Function 6: Probability Simulator
+
+```py
+
+def prob_simulator(outcomes=["yes", "no"], probabilities=[0.5, 0.5], num_trials=1):
+    results = []
+    for i in range(num_trials):
+        result = random.choices(outcomes, probabilities)[0]
+        results.append(result)
+    return results
+
+```
+
+Creates the action of a generated probability
+
+Example:
+
+```py
+print(prob_simulator(["win","lose","draw"], [.6,.2,.2])) # Simulate given probabilities
+
+```
+<br>
+
 ## Contribution
 
 If you're interested in contributing to the RNG Package, here's how you can set up your development environment:
