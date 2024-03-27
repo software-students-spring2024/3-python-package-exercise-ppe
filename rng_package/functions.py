@@ -40,3 +40,23 @@ def generate_powerball():
     powerball_number = random.randint(1, 26)
     powerball_combination = main_numbers + [powerball_number]
     return powerball_combination
+
+def draw_from_bag(itemTypes=["red","blue","green"], itemNums=[3,3,3], drawNum=1):
+    bag = []
+    drawn=[]
+    for i in range(len(itemTypes)):
+        for j in range(itemNums[i]):
+            bag.append(itemTypes[i])
+    for i in range(drawNum):
+        draw = random.choice(bag)
+        bag.remove(draw)
+        drawn.append(draw)
+    return drawn
+
+
+def prob_simulator(outcomes=["yes", "no"], probabilities=[0.5, 0.5], num_trials=1):
+    results = []
+    for i in range(num_trials):
+        result = random.choices(outcomes, probabilities)[0]
+        results.append(result)
+    return results
